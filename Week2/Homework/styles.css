@@ -1,0 +1,33 @@
+body {
+    background-image: url('https://cache.bsnsports.com/comp/sls/get/43/20938?f=jpg&sid=20938&ts=1677016424');
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position: 50 50;      
+
+}
+
+p{
+    color:#0b0b0b;
+    font-size: 20px;
+    font-family: "Old English Text", sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #080808;            
+    font-family: "Old English Text", sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #0b0b0b;
+    text-decoration: none;    
+    border-bottom: 1px solid transparent;
+    transition: border-bottom;
+}
+
+
+a:hover {
+    border-bottom: 1px solid #ffd700;
+}
