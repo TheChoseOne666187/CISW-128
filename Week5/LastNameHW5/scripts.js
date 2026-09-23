@@ -25,7 +25,7 @@ let intPos = "S";
 let intTotal = 1;
 
 const total = passYards + rushYards + recYards + tackTotal + intTotal;
-document.body.innerHTML += "<p>Result: " + total + " Yards</p>";
+document.body.innerHTML += "<p>Result: " + total +  "</p>";
 
 // Log all raw data to console for verification
 console.log("--- BRONCOS 2026 LEADERS ---");
