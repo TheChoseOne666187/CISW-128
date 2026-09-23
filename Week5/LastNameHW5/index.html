@@ -2,27 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB APP</title>
-    <header>
-        <body>
-            <script src="scripts.js"></script>
-            <script>
-                document.body.innerHTML;
-            </script>
-            </body>
-        <h1>WK5 JS</h1>
-    </header> 
-    <main>
-        <h2>My First JavaScript</h2>
-        <p>My first JavaScript code is connected to the HTML page.</p>
-        <nav>
+    <title>Week 5 JavaScript in an External File</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 700px; margin: 2rem auto; padding: 0 1rem;
+background: #f9f9f9; color: #333; }
+        header { text-align: center; border-bottom: 3px solid #FB4F14; padding-bottom: 1rem; margin-bottom: 2rem;
+}
+        h1 { color: #002244; margin: 0; font-size: 2rem; }
+        .subtitle { color: #FB4F14; font-weight: 600; margin-top: 0.25rem; }
+        main { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+min-height: 100px; }
+        .console-note { background: #002244; color: #fff; padding: 1rem; border-radius: 4px; margin-bottom:
+1.5rem; font-family: monospace; font-size: 0.9rem; }
+        .console-note span { color: #FB4F14; }
+        footer { text-align: center; margin-top: 2rem; color: #666; font-size: 0.8rem; }
 
-        </nav>
-           </head>
-<footer>
-    <p>Footer Content</p>
-</footer>
+      
+        .stat-line {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.75rem 1rem; margin: 0.5rem 0;
+            background: #fff; border-left: 5px solid #FB4F14;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: transform 0.1s ease;
+        }
+        .stat-line:hover { transform: translateX(4px); }
+        .stat-label { color: #002244; font-weight: 600; font-size: 0.95rem; }
+        .stat-value { color: #333; font-family: monospace; font-size: 1.1rem; font-weight: bold; }
+        .stat-player { color: #666; font-size: 0.85rem; margin-left: 10px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Week 5: JavaScript in an External File</h1>
+        <p class="subtitle">Team Leaders - Season Stats</p>
+    </header>
+
+    <main>
+        <div class="console-note">
+            <strong></strong> <span>&copy; 2026 Denver Broncos
+            <strong></strong> <span></span> 
+        </div>
+        
+
+        <h3 style="color: #002244; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Statistical
+Leaders</h3>
+       
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Denver Broncos | JS DOM Injection Demo</p>
+    </footer>
+
+    <script src="scripts.js" defer></script>
 </body>
 </html>
