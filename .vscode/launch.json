@@ -4,12 +4,23 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        // ... your config above ...
         {
-            "type": "editor-browser",
+            "type": "node",
             "request": "launch",
-            "name": "Launch Integrated Browser against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "name": "Start Dev Server",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"], // or "serve"
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        }
+    ],
+    
+    "compounds": [
+        {
+            "name": "Full Stack: Server + Browser",
+            "configurations": ["Launch Integrated Browser against localhost"],
+            "stopAll": true // Stops server when you stop debugging
         }
     ]
 }
