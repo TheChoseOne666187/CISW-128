@@ -1,62 +1,38 @@
-// Ask for a username and the three values used to decide movie eligibility.
+// Ask for a username and the values used to decide website eligibility.
 const usernameInput = prompt("Enter your username:");
 const username = usernameInput === null ? "" : usernameInput.trim();
 const ageInput = prompt("How old are you?");
 const age = Number(ageInput);
-const ratingInput = prompt("What is the movie rating? Enter G, PG, PG-13, or R.");
-const rating = ratingInput === null ? "" : ratingInput.trim().toUpperCase();
-const adultInput = prompt("Are you attending with an adult? Enter yes or no.");
+const adultInput = prompt("Are you visiting with an adult? Enter yes or no.");
 const adultAnswer = adultInput === null ? "" : adultInput.trim().toLowerCase();
 const isWithAdult = adultAnswer === "yes";
 
 // Print all collected values and the converted adult answer to the console.
 console.log("Username:", username);
 console.log("Age:", ageInput);
-console.log("Movie rating:", rating);
 console.log("Attending with an adult:", isWithAdult);
 
-// Rule 1: Require a whole-number age and valid movie rating and adult answer.
+// Rule 1: Require a whole-number age and valid adult answer.
 const validAge = ageInput !== null && ageInput.trim() !== "" && Number.isInteger(age) && age >= 0;
-const validRating = ["G", "PG", "PG-13", "R"].includes(rating);
 const validAdultAnswer = adultAnswer === "yes" || adultAnswer === "no";
 const results = [
     `Username: ${username || "No answer"}`,
     `Age: ${ageInput === null ? "No answer" : ageInput}`,
-    `Movie rating: ${rating || "No answer"}`,
     `Attending with an adult: ${isWithAdult}`
 ];
+let canAccessWebsite = false;
 
-if (validAge !== true || validRating !== true || validAdultAnswer !== true) {
-    results.push("Please enter a valid age, movie rating, and yes/no adult answer.");
+if (validAge !== true || validAdultAnswer !== true) {
+    results.push("Please enter a valid age and yes/no adult answer.");
 } else {
-    let canWatch = false;
+    // Rule 2: Require visitors under 18 to be accompanied by an adult.
+    canAccessWebsite = age >= 18 || isWithAdult === true;
 
-    // Rule 2: Apply the age guidance for the selected movie rating.
-    if (rating === "G") {
-        canWatch = true;
-    } else if (rating === "PG") {
-        if (age >= 10 || isWithAdult === true) {
-            canWatch = true;
-        }
-    } else if (rating === "PG-13") {
-        if (age >= 13) {
-            canWatch = true;
-        } else if (isWithAdult === true) {
-            canWatch = true;
-        }
-    } else if (rating === "R") {
-        if (age >= 17) {
-            canWatch = true;
-        } else if (isWithAdult === true) {
-            canWatch = true;
-        }
-    }
-
-    // Rule 3: Report whether the user meets the movie's age guidance.
-    if (canWatch === true) {
-        results.push("You can watch this movie.");
+    // Rule 3: Report whether the user meets the website's access requirement.
+    if (canAccessWebsite === true) {
+        results.push("You are accepted into the website.");
     } else {
-        results.push("You do not meet this movie's age guidance.");
+        results.push("You must be 18 or older or visit with an adult to access this website.");
     }
 }
 
@@ -68,7 +44,7 @@ document.body.prepend(greeting);
 // Print every result in the console and add it to the existing HTML page.
 const resultsSection = document.createElement("section");
 const resultsHeading = document.createElement("h2");
-resultsHeading.textContent = "Movie Eligibility Results";
+resultsHeading.textContent = "Website Eligibility Results";
 resultsSection.append(resultsHeading);
 
 results.forEach((result) => {
