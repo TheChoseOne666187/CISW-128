@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DOM Events Practice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+<style> 
+</style>
+</head>
+<body>
+<h1>My DOM Events Page</h1>
+<body onload="checkCookies()">
+    <button id="add">Copy</button>
+<button id="remove">Paste</button>
+<button id="test">Repeat</button>
+<button id ="Save">SAVE</button>
+<p id="demo"></p>
+    
+
+
+
+<p id="output"></p>
+<button id="myBtn">DATE & TIME</button>
+<input id="k" type="text" placeholder="Press a key here!">
+<input id="in01" type="text" placeholder="Press Enter">
+
+<p id="demo"></p>
+<p id="demo"></p>
+
+<p id="demo"></p>
+<script>
+    const test = document.getElementById("test");
+const remove = document.getElementById("remove");
+const add = document.getElementById("add");
+
+function myFunction() {
+  document.getElementById("demo").innerHTML += "Hello!";
+}
+
+// Let add listen for click
+add.addEventListener("click", function () {
+  // Let test listen for click
+  test.addEventListener("click", myFunction);
+});
+
+// Let remove listen for click
+remove.addEventListener("click", function () {
+  // Prevent test listen for click
+  test.removeEventListener("click", myFunction);
+});
+    
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+function checkCookies() {
+  let text = "";
+  if (navigator.cookieEnabled == true) {
+    text = "Cookies are enabled.";
+  } else {
+    text = "Cookies are not enabled.";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+
+const all = document.getElementById("a-z");
+
+// Let k listen for keydown
+k.addEventListener("keydown", function (event) {
+  document.getElementById("demo").innerHTML = "You pressed: " + event.key;
+});
+const in01 = document.getElementById("in01");
+
+// Let in01 listen for keydown
+in01.addEventListener("keydown", function (event) {
+// If event.code was "enter", then display text
+  if (event.code === "Enter") {
+    document.getElementById("demo").innerHTML = "Enter was pressed!";
+  }
+});
+
+
+</script>
+</body>
+</html>
